@@ -27,68 +27,106 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if (Session::has('success_message'))
+                                        <div class="alert alert-success">
+                                            <strong>Success | {{ Session::get('success_message') }}</strong>
+                                        </div>
+                                        @if (Cart::count() > 0)
+                                            @foreach (Cart::content() as $item)
+                                                <tr>
+                                                    <td class="image product-thumbnail"><img
+                                                            src="{{ asset('assets/imgs/shop/product-') }}{{ $item->model->id }}-1.jpg"
+                                                            alt="#">
+                                                    </td>
+                                                    <td class="product-des product-name">
+                                                        <h5 class="product-name"><a
+                                                                href="product-details.html">{{ $item->model->name }}</a>
+                                                        </h5>
+                                                        {{-- <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy
+                                                        qagndapibus.
+                                                    </p> --}}
+                                                    </td>
+                                                    <td class="price" data-title="Price"><span>$
+                                                            {{ $item->model->regular_price }}</span></td>
+                                                    <td class="text-center" data-title="Stock">
+                                                        <div class="detail-qty border radius  m-auto">
+                                                            <a href="#" class="qty-down"><i
+                                                                    class="fi-rs-angle-small-down"></i></a>
+                                                            <span class="qty-val">1</span>
+                                                            <a href="#" class="qty-up"><i
+                                                                    class="fi-rs-angle-small-up"></i></a>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-right" data-title="Cart">
+                                                        <span>$ {{ $item->subtotal }} </span>
+                                                    </td>
+                                                    <td class="action" data-title="Remove"><a href="#"
+                                                            class="text-muted"><i class="fi-rs-trash"></i></a></td>
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            <p>No item in cart</p>
+
+                                        @endif
+                                    @endif
                                     <tr>
-                                        <td class="image product-thumbnail"><img src="{{ asset('assets/imgs/shop/product-1-2.jpg') }}" alt="#"></td>
-                                        <td class="product-des product-name">
-                                            <h5 class="product-name"><a href="product-details.html">J.Crew Mercantile Women's Short-Sleeve</a></h5>
-                                            <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
-                                            </p>
-                                        </td>
-                                        <td class="price" data-title="Price"><span>$65.00 </span></td>
-                                        <td class="text-center" data-title="Stock">
-                                            <div class="detail-qty border radius  m-auto">
-                                                <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                                <span class="qty-val">1</span>
-                                                <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
-                                            </div>
-                                        </td>
-                                        <td class="text-right" data-title="Cart">
-                                            <span>$65.00 </span>
-                                        </td>
-                                        <td class="action" data-title="Remove"><a href="#" class="text-muted"><i class="fi-rs-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="image"><img src="{{ asset('assets/imgs/shop/product-11-2.jpg') }}" alt="#"></td>
+                                        <td class="image"><img src="{{ asset('assets/imgs/shop/product-11-2.jpg') }}"
+                                                alt="#"></td>
                                         <td class="product-des">
-                                            <h5 class="product-name"><a href="product-details.html">Amazon Essentials Women's Tank</a></h5>
-                                            <p class="font-xs">Sit at ipsum amet clita no est,<br> sed amet sadipscing et gubergren</p>
+                                            <h5 class="product-name"><a href="product-details.html">Amazon
+                                                    Essentials
+                                                    Women's Tank</a></h5>
+                                            <p class="font-xs">Sit at ipsum amet clita no est,<br> sed amet
+                                                sadipscing
+                                                et gubergren</p>
                                         </td>
                                         <td class="price" data-title="Price"><span>$75.00 </span></td>
                                         <td class="text-center" data-title="Stock">
                                             <div class="detail-qty border radius  m-auto">
-                                                <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
+                                                <a href="#" class="qty-down"><i
+                                                        class="fi-rs-angle-small-down"></i></a>
                                                 <span class="qty-val">2</span>
-                                                <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                                <a href="#" class="qty-up"><i
+                                                        class="fi-rs-angle-small-up"></i></a>
                                             </div>
                                         </td>
                                         <td class="text-right" data-title="Cart">
                                             <span>$150.00 </span>
                                         </td>
-                                        <td class="action" data-title="Remove"><a href="#" class="text-muted"><i class="fi-rs-trash"></i></a></td>
+                                        <td class="action" data-title="Remove"><a href="#" class="text-muted"><i
+                                                    class="fi-rs-trash"></i></a></td>
                                     </tr>
                                     <tr>
-                                        <td class="image"><img src="assets/imgs/shop/product-6-1.jpg" alt="#"></td>
+                                        <td class="image"><img src="assets/imgs/shop/product-6-1.jpg" alt="#">
+                                        </td>
                                         <td class="product-des">
-                                            <h5 class="product-name"><a href="product-details.html">Amazon Brand - Daily Ritual Women's Jersey </a></h5>
-                                            <p class="font-xs">Erat amet et et amet diam et et.<br> Justo amet at dolore
+                                            <h5 class="product-name"><a href="product-details.html">Amazon Brand -
+                                                    Daily
+                                                    Ritual Women's Jersey </a></h5>
+                                            <p class="font-xs">Erat amet et et amet diam et et.<br> Justo amet at
+                                                dolore
                                             </p>
                                         </td>
                                         <td class="price" data-title="Price"><span>$62.00 </span></td>
                                         <td class="text-center" data-title="Stock">
                                             <div class="detail-qty border radius  m-auto">
-                                                <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
+                                                <a href="#" class="qty-down"><i
+                                                        class="fi-rs-angle-small-down"></i></a>
                                                 <span class="qty-val">1</span>
-                                                <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                                <a href="#" class="qty-up"><i
+                                                        class="fi-rs-angle-small-up"></i></a>
                                             </div>
                                         </td>
                                         <td class="text-right" data-title="Cart">
                                             <span>$62.00 </span>
                                         </td>
-                                        <td class="action" data-title="Remove"><a href="#" class="text-muted"><i class="fi-rs-trash"></i></a></td>
+                                        <td class="action" data-title="Remove"><a href="#" class="text-muted"><i
+                                                    class="fi-rs-trash"></i></a></td>
                                     </tr>
                                     <tr>
                                         <td colspan="6" class="text-end">
-                                            <a href="#" class="text-muted"> <i class="fi-rs-cross-small"></i> Clear Cart</a>
+                                            <a href="#" class="text-muted"> <i class="fi-rs-cross-small"></i>
+                                                Clear Cart</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -104,7 +142,8 @@
                                 <div class="heading_s1 mb-3">
                                     <h4>Calculate Shipping</h4>
                                 </div>
-                                <p class="mt-15 mb-30">Flat rate: <span class="font-xl text-brand fw-900">5%</span></p>
+                                <p class="mt-15 mb-30">Flat rate: <span class="font-xl text-brand fw-900">5%</span>
+                                </p>
                                 <form class="field_form shipping_calculator">
                                     <div class="form-row">
                                         <div class="form-group col-lg-12">
@@ -361,15 +400,18 @@
                                     </div>
                                     <div class="form-row row">
                                         <div class="form-group col-lg-6">
-                                            <input required="required" placeholder="State / Country" name="name" type="text">
+                                            <input required="required" placeholder="State / Country" name="name"
+                                                type="text">
                                         </div>
                                         <div class="form-group col-lg-6">
-                                            <input required="required" placeholder="PostCode / ZIP" name="name" type="text">
+                                            <input required="required" placeholder="PostCode / ZIP" name="name"
+                                                type="text">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="form-group col-lg-12">
-                                            <button class="btn  btn-sm"><i class="fi-rs-shuffle mr-10"></i>Update</button>
+                                            <button class="btn  btn-sm"><i
+                                                    class="fi-rs-shuffle mr-10"></i>Update</button>
                                         </div>
                                     </div>
                                 </form>
@@ -383,10 +425,12 @@
                                                 <form action="#" target="_blank">
                                                     <div class="form-row row justify-content-center">
                                                         <div class="form-group col-lg-6">
-                                                            <input class="font-medium" name="Coupon" placeholder="Enter Your Coupon">
+                                                            <input class="font-medium" name="Coupon"
+                                                                placeholder="Enter Your Coupon">
                                                         </div>
                                                         <div class="form-group col-lg-6">
-                                                            <button class="btn  btn-sm"><i class="fi-rs-label mr-10"></i>Apply</button>
+                                                            <button class="btn  btn-sm"><i
+                                                                    class="fi-rs-label mr-10"></i>Apply</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -405,20 +449,35 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="cart_total_label">Cart Subtotal</td>
-                                                    <td class="cart_total_amount"><span class="font-lg fw-900 text-brand">$240.00</span></td>
+                                                    <td class="cart_total_amount"><span
+                                                            class="font-lg fw-900 text-brand">$ {{ Cart::subtotal() }}
+                                                        </span></td>
                                                 </tr>
+
+                                                <tr>
+                                                    <td class="cart_total_label">Tax</td>
+                                                    <td class="cart_total_amount"><span
+                                                            class="font-lg fw-900 text-brand">$ {{ Cart::tax() }}
+                                                        </span></td>
+                                                </tr>
+
                                                 <tr>
                                                     <td class="cart_total_label">Shipping</td>
-                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i> Free Shipping</td>
+                                                    <td class="cart_total_amount"> <i class="ti-gift mr-5"></i> Free
+                                                        Shipping</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="cart_total_label">Total</td>
-                                                    <td class="cart_total_amount"><strong><span class="font-xl fw-900 text-brand">$240.00</span></strong></td>
+                                                    <td class="cart_total_amount"><strong><span
+                                                                class="font-xl fw-900 text-brand">$ {{ Cart::total() }}
+                                                            </span></strong>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <a href="checkout.html" class="btn "> <i class="fi-rs-box-alt mr-10"></i> Proceed To CheckOut</a>
+                                    <a href="checkout.html" class="btn "> <i class="fi-rs-box-alt mr-10"></i>
+                                        Proceed To CheckOut</a>
                                 </div>
                             </div>
                         </div>
